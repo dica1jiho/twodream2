@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LG U+ 대리점 소개 | 주식회사 투드림</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f4f7fb;
+            --surface: #ffffff;
+            --primary: #0b5bd3;
+            --primary-dark: #083d92;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --line: #dfe7f3;
+            --accent: #ffb703;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 30px;
+        }
+
+        .brand {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        nav a {
+            margin-left: 18px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 36px;
+            align-items: center;
+            padding: 32px 0 48px;
+        }
+
+        .hero-card,
+        .info-card,
+        .store-card {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            box-shadow: 0 20px 45px rgba(11, 91, 211, 0.08);
+        }
+
+        .hero-card {
+            padding: 36px;
+            background: linear-gradient(135deg, #ffffff 0%, #eef6ff 100%);
+        }
+
+        .pill {
+            display: inline-block;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: #e8f1ff;
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 3vw, 2.7rem);
+            line-height: 1.3;
+            margin-bottom: 14px;
+        }
+
+        .hero p { color: var(--muted); font-size: 1rem; margin-bottom: 20px; }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 18px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 10px 24px rgba(11, 91, 211, 0.2);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--line);
+            background: #fff;
+            color: var(--text);
+        }
+
+        .hero-image {
+            min-height: 320px;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .section {
+            padding: 24px 0 40px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 18px;
+            color: var(--primary-dark);
+        }
+
+        .section-intro {
+            color: var(--muted);
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .info-card {
+            padding: 22px;
+        }
+
+        .info-card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .info-card p { color: var(--muted); font-size: 0.95rem; }
+
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .store-card {
+            padding: 22px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .store-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 18px 35px rgba(11, 91, 211, 0.12);
+        }
+
+        .store-img {
+            height: 170px;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e8eef7 100%);
+            border: 1px solid #e4ebf6;
+        }
+
+        .store-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .store-name {
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .store-address {
+            font-size: 0.94rem;
+            color: var(--muted);
+            margin-bottom: 14px;
+        }
+
+        .store-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: var(--primary);
+            background: #edf4ff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(7, 15, 29, 0.72);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 1000;
+        }
+
+        .modal-backdrop.active { display: flex; }
+
+        .modal-content {
+            width: min(960px, 100%);
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        }
+
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 { font-size: 1.1rem; color: var(--primary-dark); }
+
+        .close-btn {
+            border: none;
+            background: transparent;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--muted);
+        }
+
+        .modal-body { padding: 18px 24px 24px; }
+
+        .modal-address {
+            margin-bottom: 12px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 480px;
+            border: 0;
+            border-radius: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0 40px;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 900px) {
+            .hero, .info-grid, .store-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero { padding-top: 12px; }
+            .hero-image { min-height: 240px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="#" class="brand">LG U+ 대리점 · 주식회사 투드림</a>
+            <nav>
+                <a href="#about">회사소개</a>
+                <a href="#stores">매장소개</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-card">
+                <span class="pill">전국망 기반 고객 맞춤 서비스</span>
+                <h1>LG U+의 편리함을 가까이에서<br>전달하는 대리점입니다.</h1>
+                <p>주식회사 투드림은 인천 계양구를 중심으로 휴대폰, TV, 패드 등 다양한 디바이스를 고객님께 가장 가까운 곳에서 안내하고 있습니다. 고객의 라이프스타일에 맞춘 제품과 서비스로 편안한 경험을 제공합니다.</p>
+                <div class="hero-actions">
+                    <a href="#stores" class="btn btn-primary">매장 둘러보기</a>
+                    <a href="#about" class="btn btn-secondary">회사 소개</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80" alt="휴대폰과 태블릿을 함께 보여주는 이미지">
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <h2 class="section-title">주식회사 투드림 소개</h2>
+            <p class="section-intro">투드림은 고객님이 원하는 통신·디지털 기기를 보다 쉽고 편리하게 경험하실 수 있도록, 친절한 상담과 빠른 서비스로 함께합니다. 휴대폰, TV, 패드 등 최신 디바이스와 맞춤형 솔루션을 안내해 드립니다.</p>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>친절한 상담</h3>
+                    <p>고객님의 사용 패턴과 예산에 맞춘 제품을 꼼꼼히 설명해 드립니다.</p>
+                </div>
+                <div class="info-card">
+                    <h3>다양한 기기</h3>
+                    <p>휴대폰부터 TV, 패드까지 폭넓은 제품을 한곳에서 만나볼 수 있습니다.</p>
+                </div>
+                <div class="info-card">
+                    <h3>가까운 매장</h3>
+                    <p>계양구 전역에 분포한 4개 매장에서 편리하게 방문하실 수 있습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="stores">
+            <h2 class="section-title">투드림 매장 소개</h2>
+            <p class="section-intro">아래 매장을 클릭하면 주소와 함께 구글 지도를 크게 확인할 수 있습니다.</p>
+            <div class="store-grid" id="storeGrid"></div>
+        </section>
+    </div>
+
+    <div class="modal-backdrop" id="mapModal" role="dialog" aria-modal="true" aria-label="매장 위치 지도">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">매장명</h3>
+                <button class="close-btn" id="closeModal" aria-label="닫기">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-address" id="modalAddress">주소</div>
+                <iframe id="mapFrame" class="map-frame" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 주식회사 투드림. LG U+ 대리점 소개 페이지.
+    </footer>
+
+    <script>
+        function createMapPreview(title, address) {
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+                    <rect width="800" height="500" fill="#f4f8ff"/>
+                    <rect x="40" y="60" width="720" height="380" rx="24" fill="#ffffff" stroke="#dfe7f3" stroke-width="3"/>
+                    <path d="M110 140h560" stroke="#c9d8eb" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M140 220h470" stroke="#c9d8eb" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M170 320h220" stroke="#c9d8eb" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M170 140v240" stroke="#c9d8eb" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M340 140v120" stroke="#c9d8eb" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M520 140v180" stroke="#c9d8eb" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M520 320l120-80" stroke="#c9d8eb" stroke-width="8" stroke-linecap="round"/>
+                    <circle cx="560" cy="230" r="80" fill="#eef4ff"/>
+                    <circle cx="560" cy="230" r="54" fill="#0b5bd3" opacity="0.12"/>
+                    <path d="M560 170c-33 0-60 27-60 60s27 60 60 60 60-27 60-60-27-60-60-60z" fill="#ff5a5f"/>
+                    <path d="M560 196a34 34 0 1 0 0 68 34 34 0 0 0 0-68z" fill="#ffffff" opacity="0.95"/>
+                    <rect x="120" y="360" width="200" height="50" rx="20" fill="#0b5bd3" opacity="0.08"/>
+                    <text x="140" y="392" font-size="26" font-family="Arial, sans-serif" fill="#0b5bd3" font-weight="700">NAVER MAP</text>
+                    <text x="120" y="120" font-size="28" font-family="Arial, sans-serif" fill="#1f2937" font-weight="700">${title}</text>
+                    <text x="120" y="155" font-size="20" font-family="Arial, sans-serif" fill="#6b7280">${address}</text>
+                </svg>`;
+            return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+        }
+
+        const stores = [
+            {
+                name: '계산역점',
+                address: '인천광역시 계양구 경멍대로 1081',
+                image: createMapPreview('계산역점', '인천광역시 계양구 경멍대로 1081'),
+                tag: '휴대폰·통신'
+            },
+            {
+                name: '박촌점',
+                address: '인천광역시 계양구 장제로1009번길 1',
+                image: createMapPreview('박촌점', '인천광역시 계양구 장제로1009번길 1'),
+                tag: 'TV·가전'
+            },
+            {
+                name: '계산역2번출구점',
+                address: '인천광역시 계양구 주부토로 537',
+                image: createMapPreview('계산역2번출구점', '인천광역시 계양구 주부토로 537'),
+                tag: '패드·디지털'
+            },
+            {
+                name: '계산삼거리점',
+                address: '인천광역시 계양구 계양대로 214',
+                image: createMapPreview('계산삼거리점', '인천광역시 계양구 계양대로 214'),
+                tag: '스마트 기기'
+            }
+        ];
+
+        const storeGrid = document.getElementById('storeGrid');
+        const mapModal = document.getElementById('mapModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalAddress = document.getElementById('modalAddress');
+        const mapFrame = document.getElementById('mapFrame');
+        const closeModal = document.getElementById('closeModal');
+
+        storeGrid.innerHTML = stores.map(store => `
+            <article class="store-card" data-name="${store.name}" data-address="${store.address}">
+                <div class="store-img">
+                    <img src="${store.image}" alt="${store.name}">
+                </div>
+                <div class="store-name">${store.name}</div>
+                <div class="store-address">${store.address}</div>
+                <span class="store-tag">${store.tag}</span>
+            </article>
+        `).join('');
+
+        function openModal(store) {
+            modalTitle.textContent = store.name;
+            modalAddress.textContent = store.address;
+            const query = encodeURIComponent(`${store.name} ${store.address}`);
+            mapFrame.src = `https://www.google.com/maps?q=${query}&z=16&output=embed`;
+            mapModal.classList.add('active');
+        }
+
+        document.querySelectorAll('.store-card').forEach(card => {
+            card.addEventListener('click', () => {
+                openModal({
+                    name: card.dataset.name,
+                    address: card.dataset.address
+                });
+            });
+        });
+
+        function closeMapModal() {
+            mapModal.classList.remove('active');
+            mapFrame.src = '';
+        }
+
+        closeModal.addEventListener('click', closeMapModal);
+        mapModal.addEventListener('click', (event) => {
+            if (event.target === mapModal) closeMapModal();
+        });
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') closeMapModal();
+        });
+    </script>
+</body>
+</html>
